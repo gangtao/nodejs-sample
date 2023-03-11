@@ -57,14 +57,16 @@ some important query metadata are
 - `query.startTime`,`query.endTime`
 - `query.header` the column definition of the result table
 
+```
 ┌─────────┬────────────┬────────────────────────┐
-│ (index) │ name │ type │
+│ (index) │ name       │ type                   │
 ├─────────┼────────────┼────────────────────────┤
-│ 0 │ 'category' │ 'string' │
-│ 1 │ 'value' │ 'int64' │
-│ 2 │ 'uuid' │ 'string' │
-│ 3 │ '\_tp_time' │ "datetime64(3, 'UTC')" │
+│ 0       │ 'category' │ 'string'               │
+│ 1       │ 'value'    │ 'int64'                │
+│ 2       │ 'uuid'     │ 'string'               │
+│ 3       │ '\_tp_time'│ "datetime64(3, 'UTC')" │
 └─────────┴────────────┴────────────────────────┘
+```
 
 #### query result
 
