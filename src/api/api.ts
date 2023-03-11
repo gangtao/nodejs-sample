@@ -13,6 +13,7 @@ export const createQueryV1beta2 = async (queryRequest: CreateQueryRequestV1Beta2
         // Accept: 'text/event-stream',
         'Content-Type': 'application/json;charset=UTF-8',
         'Cache-Control': 'no-cache',
+        'X-Api-Key': Env().AuthKey(),
         Pragma: 'no-cache',
       },
       body: JSON.stringify(queryRequest),
@@ -20,8 +21,8 @@ export const createQueryV1beta2 = async (queryRequest: CreateQueryRequestV1Beta2
         if (response.ok && response.headers.get('content-type') === 'text/event-stream') {
           return; // everything's good
         } else {
-          const errorMessage = await response.json();
-          throw errorMessage;
+          const errorMessage = await response.text();
+          throw `${response.status}: ${errorMessage}`;
         }
       },
       ...fetchOptions,
